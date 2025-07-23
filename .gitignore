@@ -32,6 +32,7 @@ out/
 /dist/
 /nbdist/
 /.nb-gradle/
+application-secrets.yaml
 
 ### VS Code ###
 .vscode/
