@@ -1,0 +1,31 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001
+      author: Resul Huseynli
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: user_id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: user_email
+                  type: VARCHAR(100)
+              - column:
+                  name: user_first_name
+                  type: VARCHAR(255)
+              - column:
+                  name: user_last_name
+                  type: VARCHAR(255)
+              - column:
+                  name: user_balance
+                  type: NUMERIC(12,2)
+              - column:
+                  name: user_status
+                  type: VARCHAR(20)
+
+                  remarks: The table for users.
