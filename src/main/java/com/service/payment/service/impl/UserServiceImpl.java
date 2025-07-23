@@ -31,6 +31,7 @@ public class UserServiceImpl implements UserService {
     public UserEntityResponseDto create(UserEntityRequestDto request) {
         UserEntity userEntity = userMapper.dtoToEntity(request);
         userEntity.setStatus(ACTIVE);
+        userEntity.setBalance(BigDecimal.ZERO);
         userEntity = userEntityRepository.save(userEntity);
         return userMapper.entityToDto(userEntity);
     }
