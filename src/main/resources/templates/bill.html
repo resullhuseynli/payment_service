@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <title>Bill</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f7f7f7;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .company-info {
+            max-width: 600px;
+            margin: 0 auto 20px;
+            background: #fff;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .company-info p {
+            margin: 6px 0;
+        }
+
+        table {
+            width: 600px;
+            margin: 0 auto 30px;
+            border-collapse: collapse;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead {
+            background: linear-gradient(90deg, #3498db, #2980b9);
+            color: white;
+            font-weight: 600;
+        }
+
+        thead th {
+            padding: 12px 15px;
+            text-align: left;
+            letter-spacing: 0.03em;
+        }
+
+        tbody tr:nth-child(even) {
+            background: #f1f8ff;
+        }
+
+        tbody td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tbody tr:hover {
+            background: #d6eaff;
+            transition: background-color 0.3s ease;
+        }
+
+        .total-row {
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-align: right;
+            padding-right: 25px;
+            color: #2c3e50;
+        }
+
+        .total-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            font-size: 1.3rem;
+            text-align: right;
+            color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Bill</h1>
+
+<div class="company-info">
+    <p><strong>Company:</strong> <span th:text="${companyName}">Company Name</span></p>
+    <p><strong>Company Address:</strong> <span th:text="${companyAddress}">Baku, Azerbaijan</span></p>
+    <p><strong>Date:</strong> <span th:text="${createdDate}">2025-07-26</span></p>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${productList}">
+        <td th:text="${item.name}">Product Name</td>
+        <td th:text="${item.amount}">1</td>
+        <td th:text="${#numbers.formatDecimal(item.price, 1, 'COMMA', 2, 'POINT')}">$0.00</td>
+        <td th:text="${#numbers.formatDecimal(item.totalPrice, 1, 'COMMA', 2, 'POINT')}">$0.00</td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="total-container">
+    <span><strong>Total: </strong> <span th:text="${#numbers.formatDecimal(totalAmount, 1, 'COMMA', 2, 'POINT')}">$0.00</span></span>
+</div>
+
+</body>
+</html>

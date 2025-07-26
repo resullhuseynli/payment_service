@@ -26,11 +26,6 @@ public class UserController {
         return ResponseEntity.ok(userService.addMoney(id, money));
     }
 
-    @PostMapping("/book/{id}")
-    public ResponseEntity<BigDecimal> book(@PathVariable Long id, @RequestBody BigDecimal money) {
-        return ResponseEntity.ok(userService.buyBook(id, money));
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<UserEntityResponseDto> getById(@PathVariable Long id) {
         return ResponseEntity.ok(userService.getById(id));

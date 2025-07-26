@@ -18,7 +18,7 @@ public interface UserService {
 
     BigDecimal addMoney(Long id, BigDecimal money);
 
-    BigDecimal buyBook(Long id, BigDecimal money);
+    void buyBook(Long id, BigDecimal money);
 
     void delete(Long id);
 }

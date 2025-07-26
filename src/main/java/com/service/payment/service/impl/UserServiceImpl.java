@@ -54,7 +54,7 @@ public class UserServiceImpl implements UserService {
         return balance;
     }
 
-    public BigDecimal buyBook(Long id, BigDecimal money) {
+    public void buyBook(Long id, BigDecimal money) {
         UserEntity user = getUserWithDetails(id);
         BigDecimal balance = user.getBalance();
         BigDecimal newBalance = balance.subtract(money);
@@ -63,7 +63,6 @@ public class UserServiceImpl implements UserService {
         }
         user.setBalance(newBalance);
         userEntityRepository.save(user);
-        return balance;
     }
 
     @Override
