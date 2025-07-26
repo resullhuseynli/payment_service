@@ -28,7 +28,7 @@ public class BillGeneratorServiceImpl implements BillGeneratorService {
         context.setVariable("companyName", bill.getCompanyName());
         context.setVariable("createdDate", bill.getCreatedDate());
         context.setVariable("productList", bill.getProductList());
-        context.setVariable("totalAmount", bill.getTotalPrice());
+        context.setVariable("totalPrice", bill.getTotalPrice());
         context.setVariable("companyAddress", bill.getCompanyAddress());
 
         String htmlContent = templateEngine.process("bill", context);
