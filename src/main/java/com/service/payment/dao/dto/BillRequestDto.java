@@ -10,6 +10,7 @@ import java.util.List;
 @Builder
 public class BillRequestDto {
 
+    private Long id;
     private String companyName;
     private String companyAddress;
     private List<ProductRequestDto> productList;
