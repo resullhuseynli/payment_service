@@ -1,10 +1,10 @@
 package com.service.payment.service;
 
-import com.service.payment.dao.dto.BillEntityDto;
+import com.service.payment.dao.dto.BillRequestDto;
 
 public interface BillGeneratorService {
 
-    public byte[] generateBillPdf(BillEntityDto billDto);
+    byte[] generateBillPdf(BillRequestDto billDto);
 
 
 }

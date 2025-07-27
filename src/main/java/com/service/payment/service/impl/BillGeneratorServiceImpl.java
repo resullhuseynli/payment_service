@@ -1,7 +1,7 @@
 package com.service.payment.service.impl;
 
-import com.service.payment.dao.dto.BillEntityDto;
-import com.service.payment.dao.model.BillEntity;
+import com.service.payment.dao.dto.BillRequestDto;
+import com.service.payment.dao.model.BillModel;
 import com.service.payment.mapper.BillMapper;
 import com.service.payment.service.BillGeneratorService;
 import lombok.RequiredArgsConstructor;
@@ -22,8 +22,8 @@ public class BillGeneratorServiceImpl implements BillGeneratorService {
 
     @Override
     @SneakyThrows
-    public byte[] generateBillPdf(BillEntityDto billDto) {
-        BillEntity bill = billMapper.dtoToEntity(billDto);
+    public byte[] generateBillPdf(BillRequestDto billDto) {
+        BillModel bill = billMapper.dtoToEntity(billDto);
         Context context = new Context();
         context.setVariable("companyName", bill.getCompanyName());
         context.setVariable("createdDate", bill.getCreatedDate());

@@ -2,7 +2,7 @@ package com.service.payment.service;
 
 import com.service.payment.dao.dto.UserEntityRequestDto;
 import com.service.payment.dao.dto.UserEntityResponseDto;
-import com.service.payment.dao.model.UserEntity;
+import com.service.payment.dao.entity.UserEntity;
 
 import java.math.BigDecimal;
 

@@ -1,7 +1,7 @@
 package com.service.payment.mapper;
 
-import com.service.payment.dao.dto.ProductEntityDto;
-import com.service.payment.dao.model.ProductEntity;
+import com.service.payment.dao.dto.ProductRequestDto;
+import com.service.payment.dao.model.ProductModel;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
@@ -13,12 +13,12 @@ import java.util.List;
 public interface ProductMapper {
 
     @Mapping(target = "totalPrice", source = "dto", qualifiedByName = "calculateTotalPrice")
-    ProductEntity dtoToEntity(ProductEntityDto dto);
+    ProductModel dtoToEntity(ProductRequestDto dto);
 
     @Named("calculateTotalPrice")
-    default BigDecimal calculateTotalPrice(ProductEntityDto dto) {
+    default BigDecimal calculateTotalPrice(ProductRequestDto dto) {
         return dto.getPrice().multiply(BigDecimal.valueOf(dto.getAmount()));
     }
 
-    List<ProductEntity> dtoToEntity(List<ProductEntityDto> dto);
+    List<ProductModel> dtoToEntity(List<ProductRequestDto> dto);
 }

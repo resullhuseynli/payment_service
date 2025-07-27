@@ -1,4 +1,4 @@
-package com.service.payment.dao.model;
+package com.service.payment.dao.entity;
 
 import com.service.payment.enums.UserStatus;
 import jakarta.persistence.*;

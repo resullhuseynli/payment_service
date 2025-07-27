@@ -1,4 +1,4 @@
-package com.service.payment.dao.model;
+package com.service.payment.dao.dto;
 
 import lombok.Builder;
 import lombok.Data;
@@ -7,10 +7,9 @@ import java.math.BigDecimal;
 
 @Data
 @Builder
-public class ProductEntity {
+public class ProductRequestDto {
 
     private String name;
     private Integer amount;
     private BigDecimal price;
-    private BigDecimal totalPrice;
 }
