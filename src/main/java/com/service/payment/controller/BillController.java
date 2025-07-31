@@ -1,6 +1,6 @@
 package com.service.payment.controller;
 
-import com.service.payment.dao.dto.BillEntityDto;
+import com.service.payment.dao.dto.BillRequestDto;
 import com.service.payment.service.BillGeneratorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
@@ -19,7 +19,7 @@ public class BillController {
     private final BillGeneratorService billGeneratorService;
 
     @PostMapping
-    public ResponseEntity<byte[]> create(@RequestBody BillEntityDto billEntity) {
+    public ResponseEntity<byte[]> create(@RequestBody BillRequestDto billEntity) {
         byte[] pdf = billGeneratorService.generateBillPdf(billEntity);
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=bill.pdf")

@@ -1,7 +1,7 @@
 package com.service.payment.mapper;
 
-import com.service.payment.dao.dto.BillEntityDto;
-import com.service.payment.dao.model.BillEntity;
+import com.service.payment.dao.dto.BillRequestDto;
+import com.service.payment.dao.model.BillModel;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
@@ -13,10 +13,10 @@ public interface BillMapper {
 
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "totalPrice", source = "dto", qualifiedByName = "calculateTotalPrice")
-    BillEntity dtoToEntity(BillEntityDto dto);
+    BillModel dtoToEntity(BillRequestDto dto);
 
     @Named("calculateTotalPrice")
-    default BigDecimal calculateTotalPrice(BillEntityDto dto) {
+    default BigDecimal calculateTotalPrice(BillRequestDto dto) {
         return dto.getProductList().stream()
                 .map(p -> p.getPrice().multiply(BigDecimal.valueOf(p.getAmount())))
                 .reduce(BigDecimal.ZERO, BigDecimal::add);

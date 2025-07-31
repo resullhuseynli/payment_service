@@ -1,6 +1,5 @@
 package com.service.payment.service;
 
-import com.service.payment.dao.model.UserEntity;
 import com.service.payment.exception.InsufficientMoneyException;
 import com.service.payment.exception.NotFoundException;
 import org.springframework.kafka.annotation.KafkaListener;

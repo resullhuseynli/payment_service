@@ -9,12 +9,12 @@ import java.util.List;
 
 @Data
 @Builder
-public class BillEntity {
+public class BillModel {
 
     private Long id;
     private String companyName;
     private String companyAddress;
-    private List<ProductEntity> productList;
+    private List<ProductModel> productList;
     private BigDecimal totalPrice;
     private LocalDateTime createdDate;
 }

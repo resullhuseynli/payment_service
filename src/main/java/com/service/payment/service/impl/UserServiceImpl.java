@@ -3,7 +3,7 @@ package com.service.payment.service.impl;
 import com.service.payment.dao.UserEntityRepository;
 import com.service.payment.dao.dto.UserEntityRequestDto;
 import com.service.payment.dao.dto.UserEntityResponseDto;
-import com.service.payment.dao.model.UserEntity;
+import com.service.payment.dao.entity.UserEntity;
 import com.service.payment.exception.InsufficientMoneyException;
 import com.service.payment.exception.NotFoundException;
 import com.service.payment.mapper.UserMapper;
